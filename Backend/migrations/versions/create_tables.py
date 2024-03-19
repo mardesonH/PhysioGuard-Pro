@@ -42,6 +42,8 @@ def upgrade():
         sa.Column('position', sa.String(length=64), nullable=False),
         sa.Column('createdAt', sa.DateTime(), nullable=False, server_default=sa.func.now()),
         sa.Column('updatedAt', sa.DateTime(), nullable=False, server_default=sa.func.now(), onupdate=sa.func.now()),
+        sa.Column('registredBy', sa.String(length=64), nullable=False),
+        sa.Column('updatedBy', sa.String(length=64), nullable=False),
         sa.PrimaryKeyConstraint('id')
     )
 
