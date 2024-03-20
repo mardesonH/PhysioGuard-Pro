@@ -1,3 +1,7 @@
 Backend/.env
-
+__pycache__
 Backend/_pycache_
+Backend/migrations/_pycache_
+Backend/models/_pycache_
+Backend/routes/_pycache_
+
