@@ -15,7 +15,7 @@ def upgrade():
         sa.Column('username', sa.String(length=64), nullable=False),
         sa.Column('email', sa.String(length=120), nullable=False),
         sa.Column('password', sa.String(), nullable=False),  # Adicionando campo senha
-        sa.Column('team', sa.String(length=64), nullable=False),
+        sa.Column('team', sa.Integer(), nullable=False),
         sa.Column('createdAt', sa.DateTime(), nullable=False, server_default=sa.func.now()),  # Adicionando campo createdAt
         sa.Column('updatedAt', sa.DateTime(), nullable=False, server_default=sa.func.now(), onupdate=sa.func.now()),  # Adicionando campo updatedAt
         sa.Column('role', sa.Integer(), nullable=False),  # Adicionando campo role
@@ -40,10 +40,22 @@ def upgrade():
         sa.Column('number', sa.Integer(), nullable=False),
         sa.Column('birthDate', sa.Date(), nullable=False),
         sa.Column('position', sa.String(length=64), nullable=False),
+        sa.Column('team', sa.Integer(), nullable=False),
         sa.Column('createdAt', sa.DateTime(), nullable=False, server_default=sa.func.now()),
         sa.Column('updatedAt', sa.DateTime(), nullable=False, server_default=sa.func.now(), onupdate=sa.func.now()),
-        sa.Column('registredBy', sa.String(length=64), nullable=False),
+        sa.Column('registeredBy', sa.Integer(), nullable=False),
         sa.Column('updatedBy', sa.String(length=64), nullable=False),
+        sa.PrimaryKeyConstraint('id')
+    )
+
+    op.create_table('teams',
+        sa.Column('id', sa.Integer(), nullable=False),
+        sa.Column('name_team', sa.String(length=64), nullable=False),
+        sa.Column('logo_url', sa.String(length=255), nullable=False),
+        sa.Column('cor1_hex', sa.String(length=6), nullable=False),
+        sa.Column('cor2_hex', sa.String(length=6), nullable=False),
+        sa.Column('createdAt', sa.DateTime(), nullable=False, server_default=sa.func.now(), onupdate=sa.func.now()),
+        sa.Column('updatedAt', sa.DateTime(), nullable=False, server_default=sa.func.now(), onupdate=sa.func.now()),
         sa.PrimaryKeyConstraint('id')
     )
 
@@ -81,5 +93,8 @@ def downgrade():
     op.drop_table('athletes')
 
     op.drop_table('roles')
+
+    op.drop_table('teams')
+
 
 

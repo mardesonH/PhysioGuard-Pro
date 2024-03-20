@@ -23,11 +23,13 @@ migrate = Migrate(app, db)
 from routes.registerUser import registerUser_blueprint
 from routes.users import users_blueprint
 from routes.login import login_blueprint
+from routes.registerAthlete import registerAthlete_blueprint
 
 # Registrando os blueprints
 app.register_blueprint(registerUser_blueprint)
 app.register_blueprint(users_blueprint)
 app.register_blueprint(login_blueprint)
+app.register_blueprint(registerAthlete_blueprint)
 
 
 if __name__ == '__main__':

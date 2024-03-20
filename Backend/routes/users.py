@@ -14,8 +14,8 @@ def get_users():
             'username': user.username,
             'email': user.email,
             'team': user.team,
-            'createdat': user.createdAt,
-            'updatedat': user.updatedAt,
+            'createdAt': user.createdAt,
+            'updatedAt': user.updatedAt,
             'role': user.role 
         }
         user_list.append(user_data)

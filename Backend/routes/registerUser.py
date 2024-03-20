@@ -24,7 +24,7 @@ def create_user():
         return jsonify({'error': 'O time já atingiu o máximo de usuários!'}), 400
 
     new_user = User(username=username, email=email, team=team, role=role)
-    new_user.set_password(password)
+    new_user.set_password(password)  # Passando a senha como string
     
     db.session.add(new_user)
     db.session.commit()
